@@ -73,7 +73,7 @@
         <script>
           const apphash = decodeURI(window.location.hash).replace('#', '');
           const appname = apphash.split('+').join(' ');
-          const appslug = apphash.toLowerCase();
+          const appslug = apphash.toLowerCase().split(' ').join('+');
           for (var appnameEl of document.getElementsByClassName('appname')) {
             appnameEl.innerText = appname;
           }
