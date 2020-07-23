@@ -22,7 +22,8 @@
         պարբերաբար թարմացվում։</p>
     <p>Հասանելի են բազմաթիվ տեղական լրատվամիջոցներ։ Այլ լրատվամիջոց առաջարկելու հարցով կարող եք կապ հաստատել մեզ
         հետ։</p>
-    <h3><a href="https://play.google.com/store/apps/details?id=com.armeniatoday.rss">Տեղադրել Google Play-ից։</a></h3>
+    <h3><a id="install" href="https://play.google.com/store/apps/details?id=com.armeniatoday.rss">Տեղադրել Google
+        Play-ից։</a></h3>
     <footer>
         © 2020 Appress
         ·
@@ -31,6 +32,11 @@
         <a href="https://about.appressapps.com/privacy/#Armenia+Today" target="_blank">Privacy</a>
 
     </footer>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const source = urlParams.get('utm_source');
+        if (source === 'app') document.querySelector('#install').style.display = 'none';
+    </script>
 </div>
 </body>
 </html>
