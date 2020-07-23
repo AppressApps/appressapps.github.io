@@ -1,0 +1,23 @@
+html {
+    margin: 0 auto;
+    max-width: 700px;
+}
+
+.title {
+    text-align: center;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #128660;
+}
+
+footer {
+    font-size: small;
+}
+
+footer a {
+    font-weight: normal;
+}
