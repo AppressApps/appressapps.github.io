@@ -4,20 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>České Zprávy</title>
     <meta name="description" content="Přečtěte si novinky z populárních českých médií.">
     <meta name="author" content="Appress">
-    <style>
-        a {
-            font-weight: bold;
-            color: #128660;
-        }
-        .title {
-            text-align: center;
-            display: block;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -28,6 +18,31 @@
     </a>
     <p>Přečtěte si novinky z populárních českých médií.</p>
     <a href="https://play.google.com/store/apps/details?id=cz.news">Nainstalujte si z Google Play.</a>
+</div>
+    
+<div class="title">
+    <a href="https://play.google.com/store/apps/details?id=cz.news">
+        <p><img src="logo.png" width="80" height="80" alt="České Zprávy"></p>
+        <h2>České Zprávy</h2>
+    </a>
+    <h3>Přečtěte si novinky z populárních českých médií.</h3>
+    <p>Můžete číst české zprávy z různých zdrojů, mezi něž patří články o různých tématech: politická, ekonomická, sportovní, fotbal, show business atd.</p>
+    <p>Aplikace je velmi snadné použití. Novinky se načítají rychle a pravidelně se aktualizují. Nastavení můžete změnit podle svých představ. Můžete upravit velikost písma, vybrat temné téma a filtrovat aktivní zdroje zpráv.</p>
+    <p>K dispozici je mnoho místních médií. Můžete nás kontaktovat s návrhem na přidání jiného zdroje.</p>
+    <h3><a id="install" href="https://play.google.com/store/apps/details?id=cz.news">Nainstalujte si z Google Play.</a></h3>
+    <footer>
+        © 2021 Appress LLC
+        ·
+        <a href="mailto:appressllc@gmail.com" target="_blank">Kontaktujte nás</a>
+        ·
+        <a href="https://about.appressapps.com/privacy/#České+Zprávy" target="_blank">Privacy</a>
+
+    </footer>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const source = urlParams.get('utm_source');
+        if (source === 'app') document.querySelector('#install').style.display = 'none';
+    </script>
 </div>
 </body>
 </html>
