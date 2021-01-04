@@ -4,30 +4,35 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>Новини України</title>
     <meta name="description" content="Читайте останні новини України і світу.">
     <meta name="author" content="Appress">
-    <style>
-        a {
-            font-weight: bold;
-            color: #128660;
-        }
-        .title {
-            text-align: center;
-            display: block;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 <div class="title">
     <a href="https://play.google.com/store/apps/details?id=am.ukraine">
-        <p><img src="logo.png" width="60" height="60" alt="Новини України"></p>
-        <b>Новини України</b>
+        <p><img src="logo.png" width="80" height="80" alt="Новини України"></p>
+        <h2>Новини України</h2>
     </a>
-    <p>Читайте останні новини України і світу.</p>
-    <a href="https://play.google.com/store/apps/details?id=am.ukraine">Встановити з Google Play.</a>
+    <h3></h3>
+    <p>Ви можете читати українські новини з різних джерел, які включають статті на різні теми: політичні, економічні, спортивні, футбольні, про шоу-бізнесі та ін.</p>
+    <p>Додаток дуже просте у використанні. Новини завантажуються швидко і регулярно оновлюються. Ви можете змінити налаштування на свій смак. Можна налаштувати розмір шрифту, вибрати темну тему, а також фільтрувати активні джерела новин.</p>
+    <p>Доступні багато місцеві ЗМІ. Ви можете зв'язатися з нами з пропозицією додати інше джерело.</p>
+    <h3><a id="install" href="https://play.google.com/store/apps/details?id=am.ukraine">Встановити з Google Play.</a></h3>
+    <footer>
+        © 2021 Appress LLC
+        ·
+        <a href="mailto:appressllc@gmail.com" target="_blank">Contact us</a>
+        ·
+        <a href="https://about.appressapps.com/privacy/#Новини+України" target="_blank">Privacy</a>
+    </footer>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const source = urlParams.get('utm_source');
+        if (source === 'app') document.querySelector('#install').style.display = 'none';
+    </script>
 </div>
 </body>
 </html>
