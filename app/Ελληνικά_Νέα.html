@@ -4,30 +4,35 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>Ελληνικά Νέα</title>
     <meta name="description" content="Διαβάστε τα νέα από δημοφιλείς ελληνικές τοποθεσίες.">
     <meta name="author" content="Appress">
-    <style>
-        a {
-            font-weight: bold;
-            color: #128660;
-        }
-        .title {
-            text-align: center;
-            display: block;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 <div class="title">
     <a href="https://play.google.com/store/apps/details?id=gr.news">
-        <p><img src="logo.png" width="60" height="60" alt="Ελληνικά Νέα"></p>
-        <b>Ελληνικά Νέα</b>
+        <p><img src="logo.png" width="80" height="80" alt="Ελληνικά Νέα"></p>
+        <h2>Ελληνικά Νέα</h2>
     </a>
-    <p>Διαβάστε τα νέα από δημοφιλείς ελληνικές τοποθεσίες.</p>
-    <a href="https://play.google.com/store/apps/details?id=gr.news">Εγκαταστήστε από το Google Play</a>
+    <h3>Διαβάστε τα νέα από δημοφιλείς ελληνικές τοποθεσίες.</h3>
+    <p>Μπορείτε να διαβάσετε ελληνικά νέα από μια ποικιλία πηγών που περιλαμβάνουν άρθρα για διάφορα θέματα: πολιτικά, οικονομικά, αθλητικά, ποδόσφαιρο, επιδείξεις κ.λπ.</p>
+    <p>Η εφαρμογή είναι πολύ εύκολη στη χρήση. Οι ειδήσεις φορτώνονται γρήγορα και ενημερώνονται τακτικά. Μπορείτε να αλλάξετε τις ρυθμίσεις σύμφωνα με τις προτιμήσεις σας. Μπορείτε να προσαρμόσετε το μέγεθος της γραμματοσειράς, να επιλέξετε ένα σκοτεινό θέμα και να φιλτράρετε ενεργές πηγές ειδήσεων.</p>
+    <p>Πολλά τοπικά μέσα είναι διαθέσιμα. Μπορείτε να επικοινωνήσετε μαζί μας με μια πρόταση για να προσθέσετε άλλη πηγή.</p>
+    <h3><a id="install" href="https://play.google.com/store/apps/details?id=gr.news">Install from Google Play</a></h3>
+    <footer>
+        © 2021 Appress LLC
+        ·
+        <a href="mailto:appressllc@gmail.com" target="_blank">Contact us</a>
+        ·
+        <a href="https://about.appressapps.com/privacy/#Ελληνικά+Νέα" target="_blank">Privacy</a>
+    </footer>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const source = urlParams.get('utm_source');
+        if (source === 'app') document.querySelector('#install').style.display = 'none';
+    </script>
 </div>
 </body>
 </html>
