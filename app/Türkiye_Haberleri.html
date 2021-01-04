@@ -1,33 +1,40 @@
 <!doctype html>
 
-<html lang="tr">
+<html lang="hy">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>Türkiye Haberleri</title>
     <meta name="description" content="Popüler Türk kaynaklarından haberleri okuyun.">
     <meta name="author" content="Appress">
-    <style>
-        a {
-            font-weight: bold;
-            color: #128660;
-        }
-        .title {
-            text-align: center;
-            display: block;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 <div class="title">
-    <a href="https://play.google.com/store/apps/details?id=tr.haberleri">
-        <p><img src="logo.png" width="60" height="60" alt="Türkiye Haberleri"></p>
-        <b>Türkiye Haberleri</b>
+    <a href="https://play.google.com/store/apps/details?id=com.armeniatoday.rss">
+        <p><img src="logo.png" width="80" height="80" alt="Armenia Today"></p>
+        <h2>Armenia Today</h2>
     </a>
-    <p>Popüler Türk kaynaklarından haberleri okuyun.</p>
-    <a href="https://play.google.com/store/apps/details?id=tr.haberleri">Google Play'den yükleyin.</a>
+    <h3>Կարդացեք վերջին լուրերը Հայաստանից։</h3>
+    <p>Farklı kaynaklardan turkçe haberleri okuyabilirsiniz, farklı konularla ilgili makaleler içeren: siyasi, ekonomik, spor, futbol, gösteri dünyası ve daha fazlası.</p>
+    <p>Uygulamanın kullanımı çok kolaydır. Haberler hızla yüklenir ve düzenli olarak güncellenir. Ayarları istediğiniz gibi değiştirebilirsiniz. Yazı tipi boyutunu ayarlayabilir, karanlık bir tema seçebilir ve aktif haber kaynaklarını filtreleyebilirsiniz.</p>
+    <p>Birçok yerel medya mevcuttur. Başka bir kaynak eklemek için bir öneriyle bizimle iletişime geçebilirsiniz.</p>
+    <h3><a id="install" href="https://play.google.com/store/apps/details?id=tr.haberleri">Տեղադրել Google
+        Play-ից։</a></h3>
+    <footer>
+        © 2021 Appress LLC
+        ·
+        <a href="mailto:appressllc@gmail.com" target="_blank">Bize Ulaşın:</a>
+        ·
+        <a href="https://about.appressapps.com/privacy/#Türkiye+Haberleri" target="_blank">Privacy</a>
+
+    </footer>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const source = urlParams.get('utm_source');
+        if (source === 'app') document.querySelector('#install').style.display = 'none';
+    </script>
 </div>
 </body>
 </html>
