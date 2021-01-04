@@ -4,30 +4,35 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>News Schweiz</title>
     <meta name="description" content="Nachrichten von Schweizer und internationalen Quellen lesen.">
     <meta name="author" content="Appress">
-    <style>
-        a {
-            font-weight: bold;
-            color: #128660;
-        }
-        .title {
-            text-align: center;
-            display: block;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 <div class="title">
     <a href="https://play.google.com/store/apps/details?id=ch_de.news">
-        <p><img src="logo.png" width="60" height="60" alt="News Schweiz"></p>
-        <p>News Schweiz</p>
+        <p><img src="logo.png" width="80" height="80" alt="News Schweiz"></p>
+        <h2>News Schweiz</h2>
     </a>
-    <p>Nachrichten von Schweizer und internationalen Quellen lesen.</p>
-    <a href="https://play.google.com/store/apps/details?id=ch_de.news">Von Google Play installieren.</a>
+    <h3>Nachrichten von Schweizer und internationalen Quellen lesen.</h3>
+    <p>Sie können Schweizer Nachrichten aus verschiedenen Quellen lesen, darunter Artikel zu verschiedenen Themen: Politik, Wirtschaft, Sport, Fußball, Showbusiness und mehr.</p>
+    <p>Die App ist sehr einfach zu bedienen. Nachrichten werden schnell geladen und regelmäßig aktualisiert. Sie können die Einstellungen nach Ihren Wünschen ändern. Sie können die Schriftgröße anpassen, ein dunkles Thema auswählen und aktive Nachrichtenquellen filtern.</p>
+    <p>Viele lokale Medien sind verfügbar. Sie können uns mit einem Vorschlag kontaktieren, eine weitere Quelle hinzuzufügen.</p>
+    <h3><a id="install" href="https://play.google.com/store/apps/details?id=ch_de.news">Von Google Play installieren.</a></h3>
+    <footer>
+        © 2021 Appress LLC
+        ·
+        <a href="mailto:appressllc@gmail.com" target="_blank">Kontaktiere uns</a>
+        ·
+        <a href="https://about.appressapps.com/privacy/#New+Schweiz" target="_blank">Privacy</a>
+    </footer>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const source = urlParams.get('utm_source');
+        if (source === 'app') document.querySelector('#install').style.display = 'none';
+    </script>
 </div>
 </body>
 </html>
