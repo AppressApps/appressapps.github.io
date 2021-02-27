@@ -37,6 +37,7 @@
         const urlParams = new URLSearchParams(window.location.search);
         const source = urlParams.get('utm_source');
         if (source === 'app') document.querySelector('#install').style.display = 'none';
+        if (source === 'ios') document.querySelector('#install').setAttribute('href', 'https://apps.apple.com/am/app/armenia-today/id1241518661');
     </script>
 </div>
 </body>
