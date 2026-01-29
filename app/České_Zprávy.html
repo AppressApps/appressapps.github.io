@@ -1,37 +1,303 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="cs">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>České Zprávy</title>
-    <meta name="description" content="Přečtěte si novinky z populárních českých médií.">
-    <meta name="author" content="Appress">
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="Mějte přehled o všem, co se děje doma i ve světě. Naše aplikace je rychlý a přehledný katalog, který sdružuje nejčtenější české zpravodajské servery na jednom m...">
+
+    <style>
+        :root {
+            --primary-color: #128660;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo img {
+            height: 40px;
+            width: 40px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 80px 0 60px;
+            background: linear-gradient(180deg, #f0fdf4 0%, #fff 100%);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 35px;
+            max-width: 700px;
+            margin: 0 auto 35px;
+        }
+
+        .hero-img-container img {
+            max-width: 280px;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border: 4px solid #fff;
+            margin-top: 40px;
+        }
+
+        /* Features */
+        .features {
+            padding: 60px 0;
+            background: var(--white);
+        }
+
+        .features h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        /* How It Works (Content) */
+        .content-section {
+            padding: 80px 0;
+            background: #f1f8f6;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .topic-list ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .topic-list li {
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .topic-list li::before {
+            content: "✔";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: #aaa;
+            padding: 50px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-img-container img {
+                max-width: 220px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-<div class="title">
-    <a href="https://play.google.com/store/apps/details?id=cz.news">
-        <p><img src="logo.png" width="80" height="80" alt="České Zprávy"></p>
-        <h2>České Zprávy</h2>
-    </a>
-    <h3>Přečtěte si novinky z populárních českých médií.</h3>
-    <p>Můžete číst české zprávy z různých zdrojů, mezi něž patří články o různých tématech: politická, ekonomická, sportovní, fotbal, show business atd.</p>
-    <p>Aplikace je velmi snadné použití. Novinky se načítají rychle a pravidelně se aktualizují. Nastavení můžete změnit podle svých představ. Můžete upravit velikost písma, vybrat temné téma a filtrovat aktivní zdroje zpráv.</p>
-    <p>K dispozici je mnoho místních médií. Můžete nás kontaktovat s návrhem na přidání jiného zdroje.</p>
-    <h3><a id="install" href="https://play.google.com/store/apps/details?id=cz.news">Nainstalujte si z Google Play.</a></h3>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="Logo">
+                České Zprávy
+            </div>
+            <a href="https://play.google.com/store/apps/details?id=cz.news"
+                class="btn download-btn">Instalovat</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>VŠECHNY ZPRÁVY Z ČESKA — V JEDNÉ APLIKACI</h1>
+            <p>Mějte přehled o všem, co se děje doma i ve světě. Naše aplikace je rychlý a přehledný katalog, který sdružuje nejčtenější české zpravodajské servery na jednom místě.</p>
+
+            <a href="https://play.google.com/store/apps/details?id=cz.news" class="btn download-btn">
+                Stáhnout z Google Play
+            </a>
+
+            <div class="hero-img-container">
+                <img src="../scr/cz.news.png" alt="App Screenshot">
+            </div>
+        </div>
+    </section>
+
+    <section class="description-section">
+        <div class="container" style="padding: 60px 20px;">
+            <div
+                style="font-size: 1.1rem; color: var(--text-dark); max-width: 800px; margin: 0 auto; line-height: 1.8;">
+                VŠECHNY ZPRÁVY Z ČESKA — V JEDNÉ APLIKACI<br>
+Mějte přehled o všem, co se děje doma i ve světě. Naše aplikace je rychlý a přehledný katalog, který sdružuje nejčtenější české zpravodajské servery na jednom místě.<br>
+<br>
+JAK TO FUNGUJE:<br>
+Aplikace funguje jako rozcestník. Uvidíte seznam populárních zdrojů (např. Novinky, iDNES nebo Sport.cz). Stačí kliknout na své oblíbené médium a otevře se jeho aktuální přehled zpráv. Články se nemíchají dohromady – čtete jen to, co vás zajímá.<br>
+<br>
+HLAVNÍ TÉMATA A RUBRIKY:<br>
+Díky širokému výběru zdrojů budete mít vždy aktuální informace o:<br>
+• Politika: Domácí kauzy, rozhodnutí vlády a dění v EU.<br>
+• Sport: Hokej (Extraliga, NHL), fotbal, tenis a výsledky zápasů.<br>
+• Ekonomika: Inflace, ceny energií, kurzy měn a byznys.<br>
+• Společnost: Počasí, doprava, krimi zprávy a události z regionů.<br>
+• Kultura a Showbyznys: Novinky ze života celebrit a filmové recenze.<br>
+<br>
+PŘIZPŮSOBENÍ A POHODLÍ<br>
+Aplikace je navržena pro maximálně komfortní čtení:<br>
+📲 Nastavení písma: Zvětšete si text článků pro pohodlné čtení.<br>
+🌗 Tmavý režim: Šetřete své oči i baterii telefonu díky nočnímu režimu.<br>
+⚙️ Vlastní výběρ: V nastavení můžete skrýt weby, které nechcete sledovat, a nechat si jen ty důležité.<br>
+<br>
+ZAHRNUJE PŘEDNÍ ČESKÁ MÉDIA<br>
+V aplikaci najdete rychlé odkazy na ověřenέ zdroje, jako jsou: Novinky.cz, iDNES.cz, Seznam Zprávy, Aktuálně.cz, Blesk, Sport.cz, Denik.cz a mnoho dalších.<br>
+<br>
+Seznam zdrojů pravidelně doplňujeme na základě přání uživatelů.<br>
+<br>
+PROČ SI APLIKACI STÁHNOUT?<br>
+✅ Pořádek: Všechny vaše oblíbené noviny v jednom seznamu.<br>
+✅ Rychlost: Aplikace se načítá okamžitě a šetří data.<br>
+✅ Jednoduchost: Žádné zbytečné funkce, jen čisté zpravodajství.<br>
+<br>
+Stáhněte si České Zprávy právě teď a buďte v obraze!<br>
+Máte nápad na zlepšení nebo chcete přidat nový zdroj? Napište nám prostřednictvím kontaktního formuláře přímo v aplikaci.
+            </div>
+        </div>
+    </section>
+
     <footer>
-        © 2023 Appress
-        ·
-        <a href="mailto:appressllc@gmail.com" target="_blank">appressllc@gmail.com</a>
-        ·
-        <a href="https://about.appressapps.com/privacy/#České+Zprávy" target="_blank">Privacy</a>
+        <div class="container">
+            <p>© 2026 Appress. All rights reserved.</p>
+            <p>
+                <a href="mailto:appressllc@gmail.com" target="_blank">Contact Support</a> |
+                <a href="../privacy.html#České Zprávy" target="_blank">Privacy Policy</a>
+            </p>
+        </div>
     </footer>
+
     <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const source = urlParams.get('utm_source');
-        if (source === 'app') document.querySelector('#install').style.display = 'none';
+        // Hides download buttons if ?utm_source=app is in the URL
+        document.addEventListener("DOMContentLoaded", function () {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('utm_source') === 'app') {
+                const btns = document.querySelectorAll('.download-btn');
+                btns.forEach(btn => btn.style.display = 'none');
+            }
+        });
     </script>
-</div>
 </body>
+
 </html>

@@ -1,37 +1,303 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="de">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>News Schweiz</title>
-    <meta name="description" content="Nachrichten von Schweizer und internationalen Quellen lesen.">
-    <meta name="author" content="Appress">
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Schweiz - Nachrichten</title>
+    <meta name="description" content="Bleiben Sie über alles informiert, was im Land und in der Welt passiert. Unsere App ist ein schneller und übersichtlicher Katalog, der die führenden Schweizer M...">
+
+    <style>
+        :root {
+            --primary-color: #128660;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo img {
+            height: 40px;
+            width: 40px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 80px 0 60px;
+            background: linear-gradient(180deg, #f0fdf4 0%, #fff 100%);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 35px;
+            max-width: 700px;
+            margin: 0 auto 35px;
+        }
+
+        .hero-img-container img {
+            max-width: 280px;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border: 4px solid #fff;
+            margin-top: 40px;
+        }
+
+        /* Features */
+        .features {
+            padding: 60px 0;
+            background: var(--white);
+        }
+
+        .features h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        /* How It Works (Content) */
+        .content-section {
+            padding: 80px 0;
+            background: #f1f8f6;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .topic-list ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .topic-list li {
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .topic-list li::before {
+            content: "✔";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: #aaa;
+            padding: 50px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-img-container img {
+                max-width: 220px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-<div class="title">
-    <a href="https://play.google.com/store/apps/details?id=ch_de.news">
-        <p><img src="logo.png" width="80" height="80" alt="News Schweiz"></p>
-        <h2>News Schweiz</h2>
-    </a>
-    <h3>Nachrichten von Schweizer und internationalen Quellen lesen.</h3>
-    <p>Sie können Schweizer Nachrichten aus verschiedenen Quellen lesen, darunter Artikel zu verschiedenen Themen: Politik, Wirtschaft, Sport, Fußball, Showbusiness und mehr.</p>
-    <p>Die App ist sehr einfach zu bedienen. Nachrichten werden schnell geladen und regelmäßig aktualisiert. Sie können die Einstellungen nach Ihren Wünschen ändern. Sie können die Schriftgröße anpassen, ein dunkles Thema auswählen und aktive Nachrichtenquellen filtern.</p>
-    <p>Viele lokale Medien sind verfügbar. Sie können uns mit einem Vorschlag kontaktieren, eine weitere Quelle hinzuzufügen.</p>
-    <h3><a id="install" href="https://play.google.com/store/apps/details?id=ch_de.news">Von Google Play installieren.</a></h3>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="Logo">
+                News Schweiz
+            </div>
+            <a href="https://play.google.com/store/apps/details?id=ch_de.news"
+                class="btn download-btn">Installieren</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>ALLE NACHRICHTEN AUS DER SCHWEIZ — IN EINER APP</h1>
+            <p>Bleiben Sie über alles informiert, was im Land und in der Welt passiert. Unsere App ist ein schneller und übersichtlicher Katalog, der die führenden Schweizer Medien an einem Ort vereint.</p>
+
+            <a href="https://play.google.com/store/apps/details?id=ch_de.news" class="btn download-btn">
+                Download im Google Play
+            </a>
+
+            <div class="hero-img-container">
+                <img src="../scr/ch_de.news.png" alt="App Screenshot">
+            </div>
+        </div>
+    </section>
+
+    <section class="description-section">
+        <div class="container" style="padding: 60px 20px;">
+            <div
+                style="font-size: 1.1rem; color: var(--text-dark); max-width: 800px; margin: 0 auto; line-height: 1.8;">
+                ALLE NACHRICHTEN AUS DER SCHWEIZ — IN EINER APP<br>
+Bleiben Sie über alles informiert, was im Land und in der Welt passiert. Unsere App ist ein schneller und übersichtlicher Katalog, der die führenden Schweizer Medien an einem Ort vereint.<br>
+<br>
+WIE ES FUNKTIONIERT:<br>
+Die App dient als Verzeichnis für Nachrichtenquellen. Sie sehen eine Liste der verfügbaren Medien (z.B. "20 Minuten", "Blick" oder "SRF"). Klicken Sie einfach auf Ihre Lieblingsquelle, um den jeweiligen News-Feed zu öffnen. Keine Vermischung – Sie lesen nur das, was Sie ausgewählt haben.<br>
+<br>
+DIE WICHTIGSTEN THEMEN UND RUBRIKEN:<br>
+Dank der breiten Auswahl an Quellen sind Sie immer aktuell informiert über:<br>
+• Politik: Nationale Entscheidungen, Abstimmungen und internationale News.<br>
+• Wirtschaft: Finanzen, Schweizer Franken-Kurse und Unternehmensnews.<br>
+• Sport: Fussball (Super League), Eishockey, Tennis und Ski alpin.<br>
+• Gesellschaft: Wettervorhersagen, Verkehrsmeldungen und regionales Geschehen.<br>
+• Unterhaltung: Lifestyle-News, Promis und Kultur.<br>
+<br>
+KOMFORT UND ANPASSUNG<br>
+Die App wurde für ein angenehmes Leseerlebnis entwickelt:<br>
+⚙️ Quellen-Management: Sie können Quellen, die Sie nicht interessieren, in den Einstellungen einfach ausblenden.<br>
+🌗 Dark Mode: Schalte das dunkle Design ein, um abends entspannter zu lesen und den Akku zu schonen.<br>
+📲 Schriftgrösse: Passe die Textgrösse in den Artikeln individuell an deine Bedürfnisse an.<br>
+<br>
+BEINHALTET FÜHRENDE MEDIEN<br>
+In unserem Verzeichnis finden Sie Direktlinks zu vertrauenswürdigen Quellen wie: 20 Minuten, Blick, SRF Info, Tages-Anzeiger, NZZ, Watson, GMX.ch und vielen mehr.<br>
+<br>
+Wir fügen auf Wunsch unserer Nutzer regelmässig neue Quellen zur Liste hinzu.<br>
+<br>
+WARUM DIE APP INSTALLIEREN?<br>
+✅ Ordnung: Deine Lieblingszeitungen in einer übersichtlichen Liste.<br>
+✅ Schnelligkeit: Die App lädt sofort und schont das Datenvolumen.<br>
+✅ Einfachheit: Keine unnötigen Funktionen, nur purer Nachrichtengenuss.<br>
+<br>
+Laden Sie News Schweiz jetzt herunter und haben Sie die gesamte Presse stets griffbereit!<br>
+Haben Sie Feedback oder möchten Sie eine neue Quelle vorschlagen? Schreiben Sie uns über das Kontaktformular in den Einstellungen.
+            </div>
+        </div>
+    </section>
+
     <footer>
-        © 2023 Appress
-        ·
-        <a href="mailto:appressllc@gmail.com" target="_blank">appressllc@gmail.com</a>
-        ·
-        <a href="https://about.appressapps.com/privacy/#New+Schweiz" target="_blank">Privacy</a>
+        <div class="container">
+            <p>© 2026 Appress. All rights reserved.</p>
+            <p>
+                <a href="mailto:appressllc@gmail.com" target="_blank">Contact Support</a> |
+                <a href="../privacy.html#News Schweiz" target="_blank">Privacy Policy</a>
+            </p>
+        </div>
     </footer>
+
     <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const source = urlParams.get('utm_source');
-        if (source === 'app') document.querySelector('#install').style.display = 'none';
+        // Hides download buttons if ?utm_source=app is in the URL
+        document.addEventListener("DOMContentLoaded", function () {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('utm_source') === 'app') {
+                const btns = document.querySelectorAll('.download-btn');
+                btns.forEach(btn => btn.style.display = 'none');
+            }
+        });
     </script>
-</div>
 </body>
+
 </html>

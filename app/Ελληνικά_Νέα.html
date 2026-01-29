@@ -1,37 +1,303 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="el">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ελληνικά Νέα</title>
-    <meta name="description" content="Διαβάστε τα νέα από δημοφιλείς ελληνικές τοποθεσίες.">
-    <meta name="author" content="Appress">
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="Μείνετε ενημερωμένοι για όλα όσα συμβαίνουν στη χώρα και τον κόσμο. Η εφαρμογή μας είναι ένας γρήγορος και εύχρηστος κατάλογος που συγκεντρώνει τα κορυφαία ελλη...">
+
+    <style>
+        :root {
+            --primary-color: #128660;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo img {
+            height: 40px;
+            width: 40px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 80px 0 60px;
+            background: linear-gradient(180deg, #f0fdf4 0%, #fff 100%);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 35px;
+            max-width: 700px;
+            margin: 0 auto 35px;
+        }
+
+        .hero-img-container img {
+            max-width: 280px;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border: 4px solid #fff;
+            margin-top: 40px;
+        }
+
+        /* Features */
+        .features {
+            padding: 60px 0;
+            background: var(--white);
+        }
+
+        .features h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        /* How It Works (Content) */
+        .content-section {
+            padding: 80px 0;
+            background: #f1f8f6;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .topic-list ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .topic-list li {
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .topic-list li::before {
+            content: "✔";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: #aaa;
+            padding: 50px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-img-container img {
+                max-width: 220px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-<div class="title">
-    <a href="https://play.google.com/store/apps/details?id=gr.news">
-        <p><img src="logo.png" width="80" height="80" alt="Ελληνικά Νέα"></p>
-        <h2>Ελληνικά Νέα</h2>
-    </a>
-    <h3>Διαβάστε τα νέα από δημοφιλείς ελληνικές τοποθεσίες.</h3>
-    <p>Μπορείτε να διαβάσετε ελληνικά νέα από μια ποικιλία πηγών που περιλαμβάνουν άρθρα για διάφορα θέματα: πολιτικά, οικονομικά, αθλητικά, ποδόσφαιρο, επιδείξεις κ.λπ.</p>
-    <p>Η εφαρμογή είναι πολύ εύκολη στη χρήση. Οι ειδήσεις φορτώνονται γρήγορα και ενημερώνονται τακτικά. Μπορείτε να αλλάξετε τις ρυθμίσεις σύμφωνα με τις προτιμήσεις σας. Μπορείτε να προσαρμόσετε το μέγεθος της γραμματοσειράς, να επιλέξετε ένα σκοτεινό θέμα και να φιλτράρετε ενεργές πηγές ειδήσεων.</p>
-    <p>Πολλά τοπικά μέσα είναι διαθέσιμα. Μπορείτε να επικοινωνήσετε μαζί μας με μια πρόταση για να προσθέσετε άλλη πηγή.</p>
-    <h3><a id="install" href="https://play.google.com/store/apps/details?id=gr.news">Εγκαταστήστε από το Google Play</a></h3>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="Logo">
+                Ελληνικά Νέα
+            </div>
+            <a href="https://play.google.com/store/apps/details?id=gr.news"
+                class="btn download-btn">Εγκατάσταση</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>ΟΛΕΣ ΟΙ ΕΙΔΗΣΕΙΣ ΤΗΣ ΕΛΛΑΔΑΣ — ΣΕ ΜΙΑ ΕΦΑΡΜΟΓΗ</h1>
+            <p>Μείνετε ενημερωμένοι για όλα όσα συμβαίνουν στη χώρα και τον κόσμο. Η εφαρμογή μας είναι ένας γρήγορος και εύχρηστος κατάλογος που συγκεντρώνει τα κορυφαία ελληνικά μέσα ενημέρωσης σε ένα σημείο.</p>
+
+            <a href="https://play.google.com/store/apps/details?id=gr.news" class="btn download-btn">
+                Λήψη από το Google Play
+            </a>
+
+            <div class="hero-img-container">
+                <img src="../scr/gr.news.png" alt="App Screenshot">
+            </div>
+        </div>
+    </section>
+
+    <section class="description-section">
+        <div class="container" style="padding: 60px 20px;">
+            <div
+                style="font-size: 1.1rem; color: var(--text-dark); max-width: 800px; margin: 0 auto; line-height: 1.8;">
+                ΟΛΕΣ ΟΙ ΕΙΔΗΣΕΙΣ ΤΗΣ ΕΛΛΑΔΑΣ — ΣΕ ΜΙΑ ΕΦΑΡΜΟΓΗ<br>
+Μείνετε ενημερωμένοι για όλα όσα συμβαίνουν στη χώρα και τον κόσμο. Η εφαρμογή μας είναι ένας γρήγορος και εύχρηστος κατάλογος που συγκεντρώνει τα κορυφαία ελληνικά μέσα ενημέρωσης σε ένα σημείο.<br>
+<br>
+ΠΩΣ ΛΕΙΤΟΥΡΓΕΙ:<br>
+Η εφαρμογή λειτουργεί ως κατάλογος πηγών ειδήσεων. Βλέπετε μια λίστα με τα διαθέσιμα μέσα (π.χ. "Πρώτο Θέμα", "Newsit" ή "Gazzetta"). Απλώς πατήστε στην αγαπημένη σας πηγή για να ανοίξετε τη δική της ροή ειδήσεων. Καμία σύγχυση – διαβάζετε μόνο αυτό που έχετε επιλέξει.<br>
+<br>
+ΚΥΡΙΑ ΘΕΜΑΤΑ ΚΑΙ ΕΝΟΤΗΤΕΣ:<br>
+Χάρη στη μεγάλη ποικιλία πηγών, μπορείτε να μαθαίνετε πάντα πρώτοι για:<br>
+• Πολιτική: Εθνικές εξελίξεις, κυβερνητικές αποφάσεις και διεθνή νέα.<br>
+• Οικονομία: Οικονομικές ειδήσεις, χρηματιστήριο και επιχειρηματικότητα.<br>
+• Αθλητικά: Ποδόσφαιρο (Super League), μπάσκετ, αποτελέσματα αγώνων και παρασκήνια.<br>
+• Κοινωνία: Καιρός, κίνηση στους δρόμους και νέα από την περιφέρεια.<br>
+• Lifestyle: Νέα για διασημότητες, πολιτισμό και ψυχαγωγία.<br>
+<br>
+ΑΝΕΣΗ ΚΑΙ ΠΡΟΣΩΠΟΠΟΙΗΣΗ<br>
+Η εφαρμογή έχει σχεδιαστεί για μια ευχάριστη εμπειρία ανάγνωσης:<br>
+⚙️ Διαχείριση Πηγών: Μπορείτε να αποκρύψετε από τις ρυθμίσεις τις πηγές που δεν σας ενδιαφέρουν, κρατώντας μόνο τις σημαντικές.<br>
+🌗 Σκούρα Λειτουργία (Dark Mode): Ενεργοποιήστε τη νυχτερινή εμφάνιση για πιο ξεκούραστο διάβασμα και εξοικονόμηση μπαταρίας.<br>
+📲 Ρύθμιση Γραμματοσειράς: Αλλάξτε το μέγεθος του κειμένου στα άρθρα για καλύτερη ορατότητα.<br>
+<br>
+ΠΕΡΙΛΑΜΒΑΝΕΙ ΤΑ ΚΟΡΥΦΑΙΑ ΜΜΕ<br>
+Στον κατάλογό μας θα βρείτε γρήγορους συνδέσμους για αξιόπιστες πηγές όπως: Πρώτο Θέμα (Proto Thema), Newsit, Enikos, iefimerida, Gazzetta, Newsbomb, Sport24 και πολλές άλλες.<br>
+<br>
+Προσθέτουμε τακτικά νέες πηγές στη λίστα μετά από αιτήματα των χρηστών μας.<br>
+<br>
+ΓΙΑΤΙ ΝΑ ΤΗΝ ΕΓΚΑΤΑΣΤΗΣΕΤΕ;<br>
+✅ Τάξη: Όλες οι αγαπημένες σας εφημερίδες σε μια καθαρή λίστα.<br>
+✅ Ταχύτητα: Η εφαρμογή φορτώνει αμέσως και εξοικονομεί δεδομένα.<br>
+✅ Απλότητα: Χωρίς περιττές λειτουργίες, μόνο καθαρή ενημέρωση.<br>
+<br>
+Κατεβάστε τα Ελληνικά Νέα τώρα και έχετε όλο τον τύπο στο χέρι σας!<br>
+Έχετε κάποια πρόταση ή θέλετε να προσθέσουμε μια νέα πηγή; Γράψτε μας μέσω της φόρμας επικοινωνίας στις ρυθμίσεις.
+            </div>
+        </div>
+    </section>
+
     <footer>
-        © 2023 Appress
-        ·
-        <a href="mailto:appressllc@gmail.com" target="_blank">appressllc@gmail.com</a>
-        ·
-        <a href="https://about.appressapps.com/privacy/#Ελληνικά+Νέα" target="_blank">Privacy</a>
+        <div class="container">
+            <p>© 2026 Appress. All rights reserved.</p>
+            <p>
+                <a href="mailto:appressllc@gmail.com" target="_blank">Contact Support</a> |
+                <a href="../privacy.html#Ελληνικά Νέα" target="_blank">Privacy Policy</a>
+            </p>
+        </div>
     </footer>
+
     <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const source = urlParams.get('utm_source');
-        if (source === 'app') document.querySelector('#install').style.display = 'none';
+        // Hides download buttons if ?utm_source=app is in the URL
+        document.addEventListener("DOMContentLoaded", function () {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('utm_source') === 'app') {
+                const btns = document.querySelectorAll('.download-btn');
+                btns.forEach(btn => btn.style.display = 'none');
+            }
+        });
     </script>
-</div>
 </body>
+
 </html>

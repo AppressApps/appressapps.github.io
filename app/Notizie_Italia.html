@@ -1,37 +1,303 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="it">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Notizie Italia</title>
-    <meta name="description" content="Leggi le notizie da fonti popolari italiane.">
-    <meta name="author" content="Appress">
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notizie Italia - Ultime notizie</title>
+    <meta name="description" content="Resta aggiornato su tutto ciò che accade nel Paese e nel mondo. La nostra app è un catalogo rapido e intuitivo che riunisce i principali media italiani in un un...">
+
+    <style>
+        :root {
+            --primary-color: #128660;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo img {
+            height: 40px;
+            width: 40px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 80px 0 60px;
+            background: linear-gradient(180deg, #f0fdf4 0%, #fff 100%);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 35px;
+            max-width: 700px;
+            margin: 0 auto 35px;
+        }
+
+        .hero-img-container img {
+            max-width: 280px;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border: 4px solid #fff;
+            margin-top: 40px;
+        }
+
+        /* Features */
+        .features {
+            padding: 60px 0;
+            background: var(--white);
+        }
+
+        .features h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        /* How It Works (Content) */
+        .content-section {
+            padding: 80px 0;
+            background: #f1f8f6;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .topic-list ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .topic-list li {
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .topic-list li::before {
+            content: "✔";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: #aaa;
+            padding: 50px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-img-container img {
+                max-width: 220px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-<div class="title">
-    <a href="https://play.google.com/store/apps/details?id=it.news">
-        <p><img src="logo.png" width="80" height="80" alt="Notizie Italia"></p>
-        <h2>Notizie Italia</h2>
-    </a>
-    <h3>Leggi le notizie da fonti popolari italiane.</h3>
-    <p>Puoi leggere notizie italiane da varie fonti, che includono articoli su vari argomenti: politico, economico, sportivo, calcio, spettacolo, ecc.</p>
-    <p>L'app è molto facile da usare. Le notizie vengono caricate rapidamente e aggiornate regolarmente. È possibile modificare le impostazioni a proprio piacimento. Puoi regolare la dimensione del carattere, scegliere un tema scuro e filtrare le fonti di notizie attive.</p>
-    <p>Sono disponibili molti media locali. Puoi contattarci con un suggerimento per aggiungere un'altra fonte.</p>
-    <h3><a id="install" href="https://play.google.com/store/apps/details?id=it.news">Installa da Google Play.</a></h3>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="Logo">
+                Notizie Italia
+            </div>
+            <a href="https://play.google.com/store/apps/details?id=it.news"
+                class="btn download-btn">Installa</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>TUTTE LE NOTIZIE D'ITALIA — IN UN'UNICA APP</h1>
+            <p>Resta aggiornato su tutto ciò che accade nel Paese e nel mondo. La nostra app è un catalogo rapido e intuitivo che riunisce i principali media italiani in un unico posto.</p>
+
+            <a href="https://play.google.com/store/apps/details?id=it.news" class="btn download-btn">
+                Scarica da Google Play
+            </a>
+
+            <div class="hero-img-container">
+                <img src="../scr/it.news.png" alt="App Screenshot">
+            </div>
+        </div>
+    </section>
+
+    <section class="description-section">
+        <div class="container" style="padding: 60px 20px;">
+            <div
+                style="font-size: 1.1rem; color: var(--text-dark); max-width: 800px; margin: 0 auto; line-height: 1.8;">
+                TUTTE LE NOTIZIE D'ITALIA — IN UN'UNICA APP<br>
+Resta aggiornato su tutto ciò che accade nel Paese e nel mondo. La nostra app è un catalogo rapido e intuitivo che riunisce i principali media italiani in un unico posto.<br>
+<br>
+COME FUNZIONA:<br>
+L'app funge da directory di fonti di informazione. Vedrai un elenco di testate disponibili (ad esempio: ANSA, Corriere della Sera, La Gazzetta dello Sport). Basta cliccare sulla tua fonte preferita per aprire il suo feed di notizie dedicato. Nessuna confusione: leggi solo ciò che hai scelto.<br>
+<br>
+PRINCIPALI TEMI E RUBRICHE:<br>
+Grazie all'ampia selezione di fonti, potrai essere sempre informato su:<br>
+• Politica: Decisioni del governo, aggiornamenti parlamentari e politica estera.<br>
+• Economia: Finanza, andamento dei mercati, tasse e lavoro.<br>
+• Sport: Calcio (Serie A), MotoGP, Formula 1 e risultati in tempo reale.<br>
+• Cronaca e Società: Ultime notizie locali, meteo e traffico.<br>
+• Spettacolo: News su celebrità, cinema, musica e cultura.<br>
+<br>
+COMFORT E PERSONALIZZAZIONE<br>
+L'app è progettata per offrirti la migliore esperienza di lettura:<br>
+⚙️ Gestione Fonti: Puoi nascondere dalle impostazioni i siti che non ti interessano, lasciando solo quelli più rilevanti per te.<br>
+🌗 Modalità Scura: Attiva il tema scuro per leggere più comodamente la sera e risparmiare batteria.<br>
+📲 Dimensione Carattere: Regola la dimensione del testo negli articoli per una lettura ottimale.<br>
+<br>
+INCLUDE I PRINCIPALI MEDIA<br>
+Nel nostro catalogo troverai link rapidi a fonti affidabili come: ANSA, Corriere della Sera, La Repubblica, Il Sole 24 Ore, La Gazzetta dello Sport, TGCOM24, Fanpage e molti altri quotidiani locali.<br>
+<br>
+Aggiungiamo regolarmente nuove fonti all'elenco su richiesta dei nostri utenti.<br>
+<br>
+PERCHÉ INSTALLARLA?<br>
+✅ Ordine: Tutti i tuoi quotidiani preferiti in un unico elenco ordinato.<br>
+✅ Velocità: L'app è leggera, si carica all'istante e risparmia dati.<br>
+✅ Semplicità: Nessuna funzione superflua, solo informazione pura.<br>
+<br>
+Scarica Notizie Italia subito e tieni tutta la stampa a portata di mano!<br>
+Hai un suggerimento o vuoi aggiungere una nuova fonte? Scrivici tramite il modulo di contatto nelle impostazioni.
+            </div>
+        </div>
+    </section>
+
     <footer>
-        © 2023 Appress
-        ·
-        <a href="mailto:appressllc@gmail.com" target="_blank">appressllc@gmail.com</a>
-        ·
-        <a href="https://about.appressapps.com/privacy/#Notizie+Italia" target="_blank">Privacy</a>
+        <div class="container">
+            <p>© 2026 Appress. All rights reserved.</p>
+            <p>
+                <a href="mailto:appressllc@gmail.com" target="_blank">Contact Support</a> |
+                <a href="../privacy.html#Notizie Italia" target="_blank">Privacy Policy</a>
+            </p>
+        </div>
     </footer>
+
     <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const source = urlParams.get('utm_source');
-        if (source === 'app') document.querySelector('#install').style.display = 'none';
+        // Hides download buttons if ?utm_source=app is in the URL
+        document.addEventListener("DOMContentLoaded", function () {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('utm_source') === 'app') {
+                const btns = document.querySelectorAll('.download-btn');
+                btns.forEach(btn => btn.style.display = 'none');
+            }
+        });
     </script>
-</div>
 </body>
+
 </html>
