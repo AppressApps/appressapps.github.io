@@ -130,7 +130,38 @@ h1 {
 
 .cta-group {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.store-btn {
+    display: inline-block;
+    transition: var(--transition);
+}
+
+.store-btn img {
+    height: 48px;
+    /* Fixed height for size parity */
+    width: auto;
+    display: block;
+    filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.2));
+}
+
+.store-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    filter: drop-shadow(0 0 20px rgba(0, 229, 255, 0.4));
+}
+
+/* Platform Specific Visibility */
+.ios-only,
+.android-only {
+    display: none;
+    /* Hidden by default, script will show relevant one */
+}
+
+.desktop .ios-only,
+.desktop .android-only {
+    display: inline-block;
 }
 
 .btn {
