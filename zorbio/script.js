@@ -33,21 +33,17 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(card);
     });
 
-    // Platform Detection for Download Buttons
+    // Platform Detection
     const detectPlatform = () => {
         const userAgent = navigator.userAgent || navigator.vendor || window.opera;
         const body = document.body;
 
         if (/android/i.test(userAgent)) {
             body.classList.add('android');
-            document.querySelectorAll('.android-only').forEach(el => el.style.display = 'inline-block');
         } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
             body.classList.add('ios');
-            document.querySelectorAll('.ios-only').forEach(el => el.style.display = 'inline-block');
         } else {
-            // Desktop or other
             body.classList.add('desktop');
-            // On desktop, we can show both or a specific one. Let's show both as per CSS.
         }
     };
 

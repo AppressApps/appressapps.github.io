@@ -155,14 +155,9 @@ h1 {
 /* Platform Specific Visibility */
 .ios-only,
 .android-only {
-    display: none;
-    /* Hidden by default, script will show relevant one */
-}
-
-.desktop .ios-only,
-.desktop .android-only {
     display: inline-block;
 }
+
 
 .btn {
     padding: 1rem 2rem;
